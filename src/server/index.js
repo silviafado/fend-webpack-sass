@@ -4,11 +4,8 @@ const mockAPIResponse = require('./mockAPI.js')
 var bodyParser = require('body-parser')
 var cors = require('cors')
 
-var json = {
-    'title': 'test json response',
-    'message': 'this is a message',
-    'time': 'now'
-}
+/* Setup empty JS object to act as endpoint for all routes */
+projectData={};
 
 const app = express()
 app.use(cors())
@@ -32,6 +29,23 @@ app.listen(8081, function () {
     console.log('Example app listening on port 8081!')
 })
 
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
-})
+/* Initialize all route with a callback function */
+app.get('/all', getData);
+
+/* Callback function to complete GET '/all' */
+function getData(req,res){
+    res.send(projectData)
+};
+
+/* POST route */
+app.post('/addEntry', addEntry);
+
+function addEntry(request, response) {
+    projectData = {
+    date: request.body.date,
+    location: request.body.location,
+    country: request.body.country,
+    temp: request.body.temp,
+    };
+    response.send({ message: "Post received" });
+};
