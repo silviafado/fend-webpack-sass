@@ -18,8 +18,6 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static('dist'))
 
-console.log(JSON.stringify(mockAPIResponse))
-
 app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
 })

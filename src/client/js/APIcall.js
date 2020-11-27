@@ -18,7 +18,7 @@ function performAction(e){
     getWeather(url)
         .then (function(data){
             console.log(data)
-        postData('http://localhost:8000/addEntry', data={date:newDate, location: data.name, country:data.sys.country, temp:data.main.temp})
+        postData('http://localhost:8081/addEntry', data={date:newDate, location: data.name, country:data.sys.country, temp:data.main.temp})
         .then (function(newEntry){
         updateUI()
         })
@@ -57,7 +57,7 @@ const postData=async(url='', data={})=>{
 
 /*Function to update User Interface*/
 const updateUI=async()=>{
-    const request=await fetch('http://localhost:8000/all');
+    const request=await fetch('http://localhost:8081/all');
     try{
         const newEntry=await request.json();
         document.getElementById('date').innerHTML='Date: '+newEntry.date;
@@ -68,3 +68,5 @@ const updateUI=async()=>{
         console.log('error',error);
     }
 }
+
+export {performAction}
