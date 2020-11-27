@@ -5,7 +5,7 @@ import './styles/footer.scss'
 import './styles/form.scss'
 import './styles/header.scss'
 
-export {performAction}
+export { performAction }
 
 alert("I EXIST")
 console.log("CHANGE!!");

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Test</title>
-        <script type="text/javascript" src="../../../dist/main.js"> </script>
+        <script type="text/javascript" src="../dist/main.js"> </script>
     </head>
 
     <body>
@@ -19,9 +19,9 @@
 
         <main>
             <section>
-                <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="zip" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input id="generate" type="submit" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                <form class="" onsubmit="return Client.performAction(event)">
+                    <input id="zip" type="text" placeholder="Enter your zip">
+                    <input id="generate" type="submit" onclick="return Client.performAction(event)" onsubmit="return Client.performAction(event)">
                 </form>
             <section>
 
